@@ -6,33 +6,38 @@
   --timeline-color: rgba(255, 255, 255, 0.5);
   --timeline-active-color: white;
   --text-xs: 0.7rem;
+  --margin-lg: 2rem;
 }
 
 .carousel__container {
   height: var(--carousel-height);
+  display: flex;
+  align-items: end;
   position: relative;
+  overflow-x: hidden;
 }
 
 .carousel__image {
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: absolute;
   height: var(--carousel-height);
   width: 100%;
-  position: absolute;
-  z-index: -10;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
 }
 
 .carousel__body {
   text-align: center;
   display: grid;
   place-items: center;
-  height: var(--carousel-height);
+  margin-bottom: var(--margin-lg);
 }
 
 .carousel__heading {
   font-size: 4rem;
   color: white;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto var(--margin-lg) auto;
   width: 70%;
   text-shadow: var(--shadow);
 }
@@ -47,26 +52,12 @@
   cursor: pointer;
 }
 
-.carousel__backdrop {
-  position: absolute;
-  height: var(--carousel-height);
-  width: 100%;
-  background-color: var(--backdrop);
-  z-index: -5;
-}
-
 .carousel__footer {
   position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
-}
-
-.active-slide {
-  transition: all 0.5s ease-in-out;
 }
 
 .timeline {
@@ -91,9 +82,8 @@
   height: 100%;
   animation-name: progress;
   animation-timing-function: ease-in-out;
-  animation-duration: 3s;
-  animation-delay: 0.5s;
-  /* animation-iteration-count: infinite; */
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
   background-color: var(--timeline-active-color);
 }
 
